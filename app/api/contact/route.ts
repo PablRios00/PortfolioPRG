@@ -55,18 +55,22 @@ export async function POST(request: Request) {
       html
     });
 
-    await resend.emails.send({
-      from: "Pablo Ríos González <onboarding@resend.dev>",
-      to: payload.email,
-      subject: "He recibido tu mensaje",
-      html: `
-        <div style="font-family:Inter,Arial,sans-serif;line-height:1.7;color:#0f172a">
-          <h1>Gracias por escribir, ${safeName}</h1>
-          <p>He recibido tu mensaje correctamente y te responderé lo antes posible.</p>
-          <p style="margin-top:24px">Un saludo,<br /><strong>Pablo Ríos González</strong></p>
-        </div>
-      `
-    });
+    try {
+      await resend.emails.send({
+        from: "Pablo Ríos González <onboarding@resend.dev>",
+        to: payload.email,
+        subject: "He recibido tu mensaje",
+        html: `
+          <div style="font-family:Inter,Arial,sans-serif;line-height:1.7;color:#0f172a">
+            <h1>Gracias por escribir, ${safeName}</h1>
+            <p>He recibido tu mensaje correctamente y te responderé lo antes posible.</p>
+            <p style="margin-top:24px">Un saludo,<br /><strong>Pablo Ríos González</strong></p>
+          </div>
+        `
+      });
+    } catch {
+      console.warn("Resend rejected the auto-reply email. Main contact email was sent.");
+    }
 
     return NextResponse.json({ ok: true });
   } catch (error) {

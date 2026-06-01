@@ -3,6 +3,7 @@
 import type { Project } from "@/lib/data";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Star } from "lucide-react";
+import Image from "next/image";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
@@ -12,8 +13,33 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.06 }}
-      className={`premium-card flex h-full flex-col rounded-2xl p-6 ${project.featured ? "lg:col-span-2" : ""}`}
+      className={`premium-card group flex h-full flex-col rounded-2xl p-6 ${project.featured ? "lg:col-span-2" : ""}`}
     >
+      {project.media && (
+        <div className="mb-5 overflow-hidden rounded-xl border border-slate-700/80 bg-slate-950/60">
+          {project.media.type === "image" ? (
+            <Image
+              src={project.media.src}
+              alt={project.media.alt}
+              width={1200}
+              height={675}
+              className="aspect-video w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+            />
+          ) : (
+            <video
+              src={project.media.src}
+              className="aspect-video w-full object-cover"
+              muted
+              loop
+              playsInline
+              controls
+              preload="metadata"
+              aria-label={project.media.alt}
+            />
+          )}
+        </div>
+      )}
+
       <div className="flex flex-wrap items-center justify-between gap-3">
         <span className={`rounded-full border px-3 py-1 text-xs font-bold ${project.badgeTone}`}>{project.badge}</span>
         {project.specialBadge && (

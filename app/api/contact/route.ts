@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
+const CONTACT_EMAIL_TO = "pabloriosglez@gmail.com";
+
 const schema = z.object({
   name: z.string().min(2, "El nombre es demasiado corto").max(120),
   email: z.string().email("El email no tiene un formato válido"),
@@ -22,7 +24,6 @@ export async function POST(request: Request) {
   try {
     const payload = schema.parse(await request.json());
     const apiKey = process.env.RESEND_API_KEY;
-    const to = process.env.CONTACT_EMAIL_TO ?? "pabloriosglez@gmail.com";
 
     if (!apiKey) {
       return NextResponse.json({ error: "Falta configurar RESEND_API_KEY en Vercel o .env.local" }, { status: 500 });
@@ -49,7 +50,7 @@ export async function POST(request: Request) {
 
     await resend.emails.send({
       from: "Portfolio Pablo <onboarding@resend.dev>",
-      to,
+      to: CONTACT_EMAIL_TO,
       replyTo: payload.email,
       subject: `[Portfolio] ${payload.subject}`,
       html

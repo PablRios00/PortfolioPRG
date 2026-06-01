@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl
   },
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg"
+  },
   openGraph: {
     title: "Pablo Ríos González — Desarrollador Web Junior | Sevilla",
     description:

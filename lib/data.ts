@@ -11,6 +11,12 @@ import {
   Wrench
 } from "lucide-react";
 
+export type ProjectMedia = {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+};
+
 export type Project = {
   name: string;
   badge: string;
@@ -22,6 +28,7 @@ export type Project = {
   demo?: string;
   featured?: boolean;
   specialBadge?: string;
+  media?: ProjectMedia;
 };
 
 export const navItems = [
@@ -40,11 +47,29 @@ export const projects: Project[] = [
     category: "IA",
     badgeTone: "bg-purple-500/15 text-purple-200 border-purple-400/30",
     description:
-      "Sistema multiagente de automatización inteligente de procesos de negocio. 4 agentes IA especializados que clasifican, extraen, deciden y ejecutan acciones de forma autónoma en tiempo real.",
-    stack: ["Python", "FastAPI", "LangGraph", "OpenAI GPT-4o", "PostgreSQL", "pgvector", "Next.js", "TypeScript", "Docker", "Redis", "Celery"],
+      "Sistema multiagente de automatización inteligente de procesos de negocio. Cuatro agentes especializados clasifican, extraen datos, deciden acciones y ejecutan workflows en tiempo real.",
+    stack: [
+      "Python",
+      "FastAPI",
+      "LangGraph",
+      "OpenAI API",
+      "PostgreSQL",
+      "pgvector",
+      "Next.js",
+      "TypeScript",
+      "Docker",
+      "Redis",
+      "Celery",
+      "n8n"
+    ],
     github: "https://github.com/PablRios00/FLUJO",
     featured: true,
-    specialBadge: "Proyecto estrella"
+    specialBadge: "Proyecto estrella",
+    media: {
+      type: "image",
+      src: "/projects/flujo.png",
+      alt: "Vista de FLUJO, sistema multiagente de automatización"
+    }
   },
   {
     name: "Atlas (HistoryMap)",
@@ -52,10 +77,15 @@ export const projects: Project[] = [
     category: "IA",
     badgeTone: "bg-orange-500/15 text-orange-200 border-orange-400/30",
     description:
-      "Atlas histórico mundial interactivo. Arrastra una barra de tiempo desde el 3000 a.C. hasta 2024, haz clic en cualquier punto del mapa y una IA narra lo que ocurría allí en ese momento.",
-    stack: ["Next.js", "TypeScript", "Mapbox GL", "OpenAI GPT-4o", "PostgreSQL", "Framer Motion"],
+      "Atlas histórico mundial interactivo. El usuario elige un año, hace clic en el mapa y recibe una narración histórica generada por IA en streaming.",
+    stack: ["Next.js", "TypeScript", "Leaflet", "OpenAI GPT-4o", "PostgreSQL", "Prisma", "Framer Motion"],
     github: "https://github.com/PablRios00/Atlas",
-    featured: true
+    featured: true,
+    media: {
+      type: "image",
+      src: "/projects/atlas.png",
+      alt: "Mapa interactivo de HistoryMap con narración histórica"
+    }
   },
   {
     name: "DevTask",
@@ -63,9 +93,14 @@ export const projects: Project[] = [
     category: "TypeScript",
     badgeTone: "bg-blue-500/15 text-blue-200 border-blue-400/30",
     description:
-      "Aplicación de gestión de tareas en tiempo real con tableros tipo Trello, colaboración simultánea mediante WebSockets y autenticación completa con JWT.",
-    stack: ["TypeScript", "React", "Node.js", "Express", "PostgreSQL", "Socket.io", "Tailwind CSS", "Docker"],
-    github: "https://github.com/PablRios00/DevTask"
+      "Aplicación de gestión de tareas en tiempo real con tablero Kanban colaborativo, invitaciones por enlace, autenticación JWT y actualizaciones mediante Socket.IO.",
+    stack: ["TypeScript", "React", "Node.js", "Express", "PostgreSQL", "Socket.io", "JWT", "Docker"],
+    github: "https://github.com/PablRios00/DevTask",
+    media: {
+      type: "image",
+      src: "/projects/devtask.png",
+      alt: "Tablero Kanban de DevTask"
+    }
   },
   {
     name: "Mini CMS con IA",
@@ -73,21 +108,31 @@ export const projects: Project[] = [
     category: "PHP",
     badgeTone: "bg-emerald-500/15 text-emerald-200 border-emerald-400/30",
     description:
-      "CMS completo construido desde cero en PHP con panel de administración, gestión de blogs, generador automático de sitios web y contenido generado con IA mediante la API de OpenAI.",
-    stack: ["PHP", "MySQL", "JavaScript", "OpenAI API", "Bootstrap", "FPDF", "jQuery"],
+      "CMS en PHP con roles, editor visual, subida de imágenes, exportación ZIP/PDF y generación automática de sitios web asistida por Mistral AI.",
+    stack: ["PHP 8", "MySQL", "JavaScript", "Mistral AI API", "Bootstrap", "FPDF", "ZipArchive"],
     github: "https://github.com/PablRios00/mini-cms",
-    specialBadge: "Proyecto real · IHP Pediatría"
+    specialBadge: "Proyecto real · IHP Pediatría",
+    media: {
+      type: "image",
+      src: "/projects/mini-cms.png",
+      alt: "Editor visual del Mini CMS con IA"
+    }
   },
   {
-    name: "Plataforma de Cursos Online",
+    name: "Cadera Pro Academy",
     badge: "Full Stack · PHP",
     category: "PHP",
     badgeTone: "bg-teal-500/15 text-teal-200 border-teal-400/30",
     description:
-      "Plataforma completa de formación online con panel de administración, gestión de alumnos, contenido multimedia por cursos, sistema de acceso por roles y pasarela de pago con PayPal integrada.",
-    stack: ["PHP", "MySQL", "Tailwind CSS", "JavaScript", "PayPal API", "PDO"],
+      "Plataforma de cursos médicos online con landing pública, panel de administración, gestión de alumnos por código y pasarelas externas de pago.",
+    stack: ["PHP 8", "PDO", "MySQL", "Tailwind CSS", "Bootstrap", "Stripe", "Hotmart", "PayPal"],
     github: "https://github.com/PablRios00/curso-landing",
-    specialBadge: "Proyecto real · IHP Pediatría"
+    specialBadge: "Proyecto real · IHP Pediatría",
+    media: {
+      type: "image",
+      src: "/projects/courses-platform.png",
+      alt: "Landing de Cadera Pro Academy"
+    }
   },
   {
     name: "Adopta-app (TFG)",
@@ -95,24 +140,19 @@ export const projects: Project[] = [
     category: "Web",
     badgeTone: "bg-pink-500/15 text-pink-200 border-pink-400/30",
     description:
-      "Plataforma web para la gestión y adopción responsable. Integra frontend accesible, backend en PHP y React, y APIs de IA para clasificar perfiles y optimizar recomendaciones.",
-    stack: ["HTML5", "CSS3", "Bootstrap", "PHP", "React", "IA API", "MySQL"],
+      "Plataforma web para adopción responsable con chat en tiempo real, favoritos, galería múltiple, geolocalización por zonas y panel de administración.",
+    stack: ["HTML5", "CSS3", "JavaScript", "PHP 8", "PDO", "MySQL", "Bootstrap"],
     github: "https://github.com/PablRios00/Adopta-app",
-    specialBadge: "TFG DAW"
-  },
-  {
-    name: "BlocNotas",
-    badge: "Java · Desktop",
-    category: "Web",
-    badgeTone: "bg-yellow-500/15 text-yellow-100 border-yellow-400/30",
-    description:
-      "Aplicación de escritorio de bloc de notas desarrollada en Java con interfaz gráfica, persistencia de datos y gestión de múltiples documentos.",
-    stack: ["Java", "Swing", "POO"],
-    github: "https://github.com/PablRios00/BlocNotas"
+    specialBadge: "TFG DAW",
+    media: {
+      type: "video",
+      src: "/projects/adopta-demo.mp4",
+      alt: "Demo en vídeo de Adopta-app"
+    }
   }
 ];
 
-export const filters = ["Todos", "Web", "IA", "Mobile", "PHP", "TypeScript"];
+export const filters = ["Todos", "Web", "IA", "PHP", "TypeScript"];
 
 export const experiences = [
   {
@@ -121,13 +161,13 @@ export const experiences = [
     period: "Abril 2026 — Actualidad · Sevilla, España",
     current: true,
     bullets: [
-      "Gestión, mantenimiento y optimización de bases de datos corporativas",
-      "Supervisión y mejora del frontend del sitio web de IHP Pediatría",
-      "Desarrollo de un generador automático de sitios web CMD con IA integrada (OpenAI API)",
-      "Participación en reuniones de diseño y validación de nuevas funcionalidades",
-      "Documentación técnica y apoyo en pruebas y depuración"
+      "Gestión y optimización de bases de datos MySQL, mejorando organización y tiempos de consulta",
+      "Auditoría y mejora del frontend corporativo con correcciones de UX y responsive design",
+      "Desarrollo de un mini-CMS con generación automática de sitios web mediante Mistral AI API",
+      "Desarrollo de una plataforma de cursos online con alumnos, códigos de acceso y pagos externos",
+      "Documentación técnica, pruebas, depuración y validación de funcionalidades con el equipo"
     ],
-    stack: ["PHP", "MySQL", "JavaScript", "OpenAI API", "HTML5", "CSS3"]
+    stack: ["PHP", "MySQL", "JavaScript", "Mistral AI API", "HTML5", "CSS3", "Bootstrap"]
   },
   {
     company: "Venta Pazo",
@@ -135,7 +175,7 @@ export const experiences = [
     period: "Octubre 2024 — Actualidad · Sanlúcar la Mayor, España",
     current: false,
     description:
-      "Trabajo en entorno de alta demanda desarrollando habilidades de trabajo en equipo, gestión de la presión, comunicación efectiva y coordinación con múltiples áreas (sala, barra, cocina, almacén).",
+      "Trabajo en entorno de alta demanda desarrollando habilidades de atención al cliente, coordinación de equipo, gestión de presión, comunicación efectiva y apoyo entre sala, barra, cocina y almacén.",
     stack: ["Soft skills", "Trabajo en equipo", "Gestión del estrés"]
   }
 ];
@@ -144,7 +184,9 @@ export const education = [
   "Técnico Superior DAW — Grupo Studium · Sep 2024 – Mar 2026 · Sevilla",
   "Curso Fundamentos de la IA — OpenWebinars",
   "Curso Dominio de ChatGPT con la API de OpenAI — OpenWebinars",
-  "Curso Python — OpenWebinars"
+  "Curso Python — OpenWebinars",
+  "Inglés B2 certificado Aptis — British Council",
+  "Permiso de conducción B"
 ];
 
 export const skills = [
@@ -161,7 +203,8 @@ export const skills = [
       ["Tailwind CSS", "#06b6d4"],
       ["Bootstrap", "#7952b3"],
       ["Angular", "#dd0031"],
-      ["Framer Motion", "#ff0055"]
+      ["Framer Motion", "#ff0055"],
+      ["Vite", "#646cff"]
     ]
   },
   {
@@ -181,9 +224,11 @@ export const skills = [
     icon: BrainCircuit,
     items: [
       ["OpenAI API", "#10b981"],
+      ["Mistral AI", "#ff7000"],
       ["LangGraph", "#ff4b4b"],
       ["LangChain", "#1c3c3c"],
       ["Resend", "#ffffff"],
+      ["Slack API", "#4a154b"],
       ["Stripe / PayPal", "#635bff"]
     ]
   },
@@ -196,7 +241,8 @@ export const skills = [
       ["MongoDB", "#47a248"],
       ["MariaDB", "#c0765a"],
       ["pgvector", "#10b981"],
-      ["Redis", "#dc382d"]
+      ["Redis", "#dc382d"],
+      ["Prisma", "#2d3748"]
     ]
   },
   {
@@ -206,9 +252,11 @@ export const skills = [
       ["Git", "#f05032"],
       ["GitHub", "#ffffff"],
       ["Docker", "#2496ed"],
+      ["Docker Compose", "#2496ed"],
       ["Vercel", "#ffffff"],
       ["Railway", "#a855f7"],
       ["XAMPP", "#fb7a24"],
+      ["Postman", "#ff6c37"],
       ["VSCode", "#007acc"],
       ["Eclipse", "#2c2255"]
     ]
@@ -222,7 +270,9 @@ export const skills = [
       ["macOS", "#d1d5db"],
       ["VMware", "#607078"],
       ["VirtualBox", "#183a61"],
-      ["Salesforce", "#00a1e0"]
+      ["Salesforce", "#00a1e0"],
+      ["n8n", "#ea4b71"],
+      ["WebSockets", "#3b82f6"]
     ]
   }
 ];
@@ -230,8 +280,8 @@ export const skills = [
 export const heroTech = ["TypeScript", "React", "Next.js", "Python", "PHP", "MySQL", "Docker", "Git"];
 
 export const highlightCards = [
-  { icon: Sparkles, label: "IA aplicada", value: "OpenAI API" },
+  { icon: Sparkles, label: "IA aplicada", value: "OpenAI + Mistral" },
   { icon: BriefcaseBusiness, label: "Prácticas", value: "IHP Pediatría" },
-  { icon: GraduationCap, label: "Formación", value: "DAW" },
+  { icon: GraduationCap, label: "Formación", value: "DAW + B2" },
   { icon: Bot, label: "Automatización", value: "Agentes IA" }
 ];

@@ -44,7 +44,7 @@ export function About() {
           </div>
           <div className="mt-5 grid grid-cols-3 gap-3">
             {[
-              ["7", "Proyectos completados"],
+              ["6", "Proyectos principales"],
               ["2", "Años de experiencia"],
               ["B2", "Nivel de inglés"]
             ].map(([value, label]) => (
@@ -70,13 +70,13 @@ export function About() {
               Soy Pablo Ríos González, desarrollador web junior de Sevilla con una gran pasión por construir proyectos
               reales que resuelven problemas concretos. Actualmente realizo mis prácticas en IHP Pediatría, donde trabajo
               en la gestión de bases de datos, el frontend corporativo y el desarrollo de herramientas con inteligencia
-              artificial.
+              artificial aplicada a producción.
             </p>
             <p>
               Me especializo en el stack web moderno (Next.js, TypeScript, React) y en la integración de IA en
-              aplicaciones reales. He trabajado con la API de OpenAI para automatizar procesos, generar contenido
-              dinámico y construir sistemas agentivos. Creo firmemente que la IA no reemplaza al desarrollador, sino que
-              lo convierte en 10 veces más productivo.
+              aplicaciones reales. He trabajado con OpenAI, Mistral AI, LangGraph y herramientas de automatización como
+              n8n para generar contenido, reducir tiempos de producción y construir sistemas agentivos. Creo firmemente
+              que la IA no reemplaza al desarrollador, sino que lo convierte en 10 veces más productivo.
             </p>
             <p>
               Fuera del código, mi experiencia de dos años en hostelería me ha enseñado más sobre trabajo en equipo,

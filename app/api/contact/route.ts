@@ -4,6 +4,8 @@ import { z } from "zod";
 
 const CONTACT_EMAIL_TO = "pabloriosglez@gmail.com";
 
+export const runtime = "nodejs";
+
 const schema = z.object({
   name: z.string().min(2, "El nombre es demasiado corto").max(120),
   email: z.string().email("El email no tiene un formato válido"),

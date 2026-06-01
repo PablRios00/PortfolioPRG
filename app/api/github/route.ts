@@ -2,6 +2,7 @@ import { getGitHubRepos } from "@/lib/github";
 import { NextResponse } from "next/server";
 
 export const revalidate = 3600;
+export const runtime = "nodejs";
 
 const hiddenRepos = new Set(["BlocNotas", "PortfolioPabloRiosGonzalez"]);
 

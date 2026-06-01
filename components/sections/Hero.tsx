@@ -69,40 +69,44 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="relative hidden h-[520px] lg:block"
+          className="relative hidden min-h-[560px] items-center justify-center lg:flex"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
         >
-          <div className="absolute inset-6 rounded-[2rem] border border-blue-400/20 bg-slate-900/40 shadow-[0_0_80px_rgba(59,130,246,0.16)] backdrop-blur" />
-          {highlightCards.map((card, index) => {
-            const Icon = card.icon;
-            return (
-              <motion.div
-                key={card.label}
-                className="absolute rounded-2xl border border-slate-700/80 bg-slate-950/78 p-5 shadow-2xl backdrop-blur"
-                style={{
-                  left: `${index % 2 === 0 ? 3 : 48}%`,
-                  top: `${12 + index * 21}%`,
-                  width: "250px"
-                }}
-                animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 4 + index * 0.4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <Icon className="mb-4 text-emerald-300" size={26} />
-                <p className="text-sm text-slate-400">{card.label}</p>
-                <p className="font-display mt-1 text-xl font-bold text-white">{card.value}</p>
-              </motion.div>
-            );
-          })}
-          <div className="absolute bottom-16 left-16 right-10 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-5 font-mono text-sm leading-7 text-emerald-100">
-            <span className="text-blue-300">const</span> developer = {"{"}
-            <br />
-            &nbsp;&nbsp;value: <span className="text-white">&quot;real projects&quot;</span>,
-            <br />
-            &nbsp;&nbsp;focus: <span className="text-white">&quot;applied AI&quot;</span>
-            <br />
-            {"}"}
+          <div className="absolute inset-0 rounded-[2rem] border border-blue-400/20 bg-slate-900/35 shadow-[0_0_80px_rgba(59,130,246,0.16)] backdrop-blur" />
+          <div className="relative w-full max-w-[560px] p-8">
+            <div className="grid grid-cols-2 gap-5">
+              {highlightCards.map((card, index) => {
+                const Icon = card.icon;
+                return (
+                  <motion.div
+                    key={card.label}
+                    className="min-h-[150px] rounded-2xl border border-slate-700/80 bg-slate-950/78 p-5 shadow-2xl backdrop-blur"
+                    animate={{ y: [0, index % 2 === 0 ? -8 : 8, 0] }}
+                    transition={{ duration: 5 + index * 0.35, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <Icon className="mb-5 text-emerald-300" size={26} />
+                    <p className="text-sm text-slate-400">{card.label}</p>
+                    <p className="font-display mt-2 text-xl font-bold leading-tight text-white">{card.value}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <motion.div
+              className="mt-5 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-5 font-mono text-sm leading-7 text-emerald-100"
+              animate={{ opacity: [0.86, 1, 0.86] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <span className="text-blue-300">const</span> developer = {"{"}
+              <br />
+              &nbsp;&nbsp;value: <span className="text-white">&quot;real projects&quot;</span>,
+              <br />
+              &nbsp;&nbsp;focus: <span className="text-white">&quot;applied AI&quot;</span>
+              <br />
+              {"}"}
+            </motion.div>
           </div>
         </motion.div>
       </div>

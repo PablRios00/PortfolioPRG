@@ -48,6 +48,23 @@ Abre `http://localhost:3000`.
    - `NEXT_PUBLIC_GITHUB_USERNAME=PablRios00`
 3. Haz deploy automático desde la rama `main`.
 
+## Deploy en Netlify
+
+Netlify soporta Next.js App Router y Route Handlers. El archivo `netlify.toml` deja configurado:
+
+- Build command: `npm run build`
+- Publish directory: `.next`
+
+En Netlify, crea un nuevo sitio desde GitHub importando `PablRios00/PortfolioPRG` y añade estas variables en **Site configuration → Environment variables**:
+
+```env
+RESEND_API_KEY=tu_clave_resend
+CONTACT_EMAIL_TO=pabloriosglez@gmail.com
+NEXT_PUBLIC_GITHUB_USERNAME=PablRios00
+```
+
+Después despliega desde la rama `main`. Las rutas `/api/contact` y `/api/github` se ejecutan como funciones serverless de Netlify mediante el runtime de Next.js.
+
 ## Repositorio Git
 
 ```bash

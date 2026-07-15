@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, Star } from "lucide-react";
 import Image from "next/image";
 
-function StackSection({ label, items, color }: { label: string; items: string[]; color: string }) {
+function StackSection({ label, items, color }: { label: string; items?: string[]; color: string }) {
   if (!items || items.length === 0) return null;
   return (
     <div>

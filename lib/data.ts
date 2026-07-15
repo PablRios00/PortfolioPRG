@@ -17,6 +17,12 @@ export type ProjectMedia = {
   alt: string;
 };
 
+export type StackSegmented = {
+  frontend?: string[];
+  backend?: string[];
+  database?: string[];
+};
+
 export type Project = {
   name: string;
   badge: string;
@@ -24,6 +30,7 @@ export type Project = {
   badgeTone: string;
   description: string;
   stack: string[];
+  stackSegmented?: StackSegmented;
   github: string;
   demo?: string;
   featured?: boolean;
@@ -33,10 +40,9 @@ export type Project = {
 
 export const navItems = [
   { label: "Sobre mí", href: "#sobre-mi", id: "sobre-mi" },
-  { label: "Experiencia", href: "#experiencia", id: "experiencia" },
   { label: "Proyectos", href: "#proyectos", id: "proyectos" },
-  { label: "Habilidades", href: "#habilidades", id: "habilidades" },
   { label: "GitHub", href: "#github", id: "github" },
+  { label: "Habilidades", href: "#habilidades", id: "habilidades" },
   { label: "Contacto", href: "#contacto", id: "contacto" }
 ];
 
@@ -48,20 +54,12 @@ export const projects: Project[] = [
     badgeTone: "bg-purple-500/15 text-purple-200 border-purple-400/30",
     description:
       "Sistema multiagente de automatización inteligente de procesos de negocio. Cuatro agentes especializados clasifican, extraen datos, deciden acciones y ejecutan workflows en tiempo real.",
-    stack: [
-      "Python",
-      "FastAPI",
-      "LangGraph",
-      "OpenAI API",
-      "PostgreSQL",
-      "pgvector",
-      "Next.js",
-      "TypeScript",
-      "Docker",
-      "Redis",
-      "Celery",
-      "n8n"
-    ],
+    stack: ["Python", "FastAPI", "LangGraph", "OpenAI API", "PostgreSQL", "pgvector", "Next.js", "TypeScript", "Docker", "Redis", "Celery", "n8n"],
+    stackSegmented: {
+      frontend: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "Socket.io-client"],
+      backend: ["Python 3.12", "FastAPI", "LangGraph", "OpenAI GPT-4o", "Celery", "n8n", "Resend", "Slack API"],
+      database: ["PostgreSQL", "pgvector", "Redis", "Docker Compose"],
+    },
     github: "https://github.com/PablRios00/FLUJO",
     featured: true,
     specialBadge: "Proyecto estrella",
@@ -79,6 +77,11 @@ export const projects: Project[] = [
     description:
       "Atlas histórico mundial interactivo. El usuario elige un año, hace clic en el mapa y recibe una narración histórica generada por IA en streaming.",
     stack: ["Next.js", "TypeScript", "Leaflet", "OpenAI GPT-4o", "PostgreSQL", "Prisma", "Framer Motion"],
+    stackSegmented: {
+      frontend: ["Next.js", "TypeScript", "Tailwind CSS", "Leaflet", "Framer Motion"],
+      backend: ["Next.js API Routes", "OpenAI GPT-4o", "Prisma ORM"],
+      database: ["PostgreSQL"],
+    },
     github: "https://github.com/PablRios00/Atlas",
     featured: true,
     media: {
@@ -95,6 +98,11 @@ export const projects: Project[] = [
     description:
       "Aplicación de gestión de tareas en tiempo real con tablero Kanban colaborativo, invitaciones por enlace, autenticación JWT y actualizaciones mediante Socket.IO.",
     stack: ["TypeScript", "React", "Node.js", "Express", "PostgreSQL", "Socket.io", "JWT", "Docker"],
+    stackSegmented: {
+      frontend: ["React 18", "TypeScript", "Vite", "Tailwind CSS", "Socket.io-client"],
+      backend: ["Node.js", "Express", "JWT", "bcrypt", "Socket.io"],
+      database: ["PostgreSQL", "Docker Compose"],
+    },
     github: "https://github.com/PablRios00/DevTask",
     media: {
       type: "image",
@@ -110,6 +118,11 @@ export const projects: Project[] = [
     description:
       "CMS en PHP con roles, editor visual, subida de imágenes, exportación ZIP/PDF y generación automática de sitios web asistida por Mistral AI.",
     stack: ["PHP 8", "MySQL", "JavaScript", "Mistral AI API", "Bootstrap", "FPDF", "ZipArchive"],
+    stackSegmented: {
+      frontend: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5"],
+      backend: ["PHP 8", "Mistral AI API", "FPDF", "ZipArchive"],
+      database: ["MySQL"],
+    },
     github: "https://github.com/PablRios00/mini-cms",
     specialBadge: "Proyecto real · IHP Pediatría",
     media: {
@@ -126,6 +139,11 @@ export const projects: Project[] = [
     description:
       "Plataforma de cursos médicos online con landing pública, panel de administración, gestión de alumnos por código y pasarelas externas de pago.",
     stack: ["PHP 8", "PDO", "MySQL", "Tailwind CSS", "Bootstrap", "Stripe", "Hotmart", "PayPal"],
+    stackSegmented: {
+      frontend: ["HTML5", "CSS3", "Tailwind CSS", "Bootstrap 5"],
+      backend: ["PHP 8", "PDO", "Stripe", "Hotmart", "PayPal"],
+      database: ["MySQL"],
+    },
     github: "https://github.com/PablRios00/curso-landing",
     specialBadge: "Proyecto real · IHP Pediatría",
     media: {
@@ -142,6 +160,11 @@ export const projects: Project[] = [
     description:
       "Plataforma web para adopción responsable con chat en tiempo real, favoritos, galería múltiple, geolocalización por zonas y panel de administración.",
     stack: ["HTML5", "CSS3", "JavaScript", "PHP 8", "PDO", "MySQL", "Bootstrap"],
+    stackSegmented: {
+      frontend: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5"],
+      backend: ["PHP 8", "PDO"],
+      database: ["MySQL"],
+    },
     github: "https://github.com/PablRios00/Adopta-app",
     specialBadge: "TFG DAW",
     media: {
@@ -152,14 +175,14 @@ export const projects: Project[] = [
   }
 ];
 
-export const filters = ["Todos", "Web", "IA", "PHP", "TypeScript"];
+export const filters = ["Todos", "IA", "PHP", "TypeScript", "Web", "Java", "Python", "Vue", ".NET"];
 
 export const experiences = [
   {
     company: "IHP Pediatría",
     role: "Técnico en Desarrollo Web — Prácticas Formativas",
-    period: "Abril 2026 — Actualidad · Sevilla, España",
-    current: true,
+    period: "Abril 2026 — Junio 2026 · Sevilla, España",
+    current: false,
     bullets: [
       "Gestión y optimización de bases de datos MySQL, mejorando organización y tiempos de consulta",
       "Auditoría y mejora del frontend corporativo con correcciones de UX y responsive design",
@@ -216,7 +239,8 @@ export const skills = [
       ["PHP", "#777bb4"],
       ["Python", "#3776ab"],
       ["FastAPI", "#009688"],
-      ["Java", "#f89820"]
+      ["Java", "#f89820"],
+      ["Spring Boot", "#6db33f"]
     ]
   },
   {
@@ -224,6 +248,7 @@ export const skills = [
     icon: BrainCircuit,
     items: [
       ["OpenAI API", "#10b981"],
+      ["Claude API", "#d97706"],
       ["Mistral AI", "#ff7000"],
       ["LangGraph", "#ff4b4b"],
       ["LangChain", "#1c3c3c"],

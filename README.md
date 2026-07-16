@@ -2,7 +2,7 @@
 
 Mi portfolio profesional construido desde cero con las tecnologías más modernas de 2026. No es una plantilla — cada línea de código la he escrito (o aprendido a fondo) para demostrar que sé lo que hago más allá de los proyectos.
 
-🔗 **[Ver en producción →](https://sweet-creponne-51557e.netlify.app)**
+🔗 **[Ver en producción →](https://pablorios.eu)**
 
 ---
 

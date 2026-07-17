@@ -17,7 +17,7 @@ export function Projects() {
   }, [activeFilter]);
 
   return (
-    <AnimatedSection id="proyectos" className="container-shell py-16 md:py-28">
+    <AnimatedSection id="proyectos" className="container-shell py-10 md:py-28">
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <div>
           <p className="section-kicker">Lo que he construido</p>

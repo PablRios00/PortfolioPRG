@@ -155,7 +155,7 @@ function InfiniteCarousel({
 
 export function Skills() {
   return (
-    <AnimatedSection id="habilidades" className="bg-[#0f172a]/55 py-16 md:py-28 overflow-hidden">
+    <AnimatedSection id="habilidades" className="bg-[#0f172a]/55 py-10 md:py-28 overflow-hidden">
       <div className="container-shell">
         <p className="section-kicker">Tecnologías con las que trabajo</p>
         <h2 className="section-title">Stack Técnico</h2>
@@ -163,7 +163,7 @@ export function Skills() {
           Una base full stack moderna, con especial sensibilidad por automatización e IA aplicada.
         </p>
 
-        <div className="mt-14 space-y-12">
+        <div className="mt-8 space-y-8 md:mt-14 md:space-y-12">
           {carousels.map((carousel, i) => (
             <motion.div
               key={carousel.title}

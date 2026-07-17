@@ -46,7 +46,7 @@ export function GitHubActivity() {
   const repoCount = useMemo(() => Math.max(24, repos.length), [repos.length]);
 
   return (
-    <AnimatedSection id="github" className="container-shell py-28">
+    <AnimatedSection id="github" className="container-shell py-10 md:py-28">
       <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
         <div>
           <p className="section-kicker">Actividad en tiempo real desde la API de GitHub</p>

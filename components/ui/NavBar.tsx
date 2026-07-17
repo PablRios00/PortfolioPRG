@@ -103,7 +103,7 @@ export function NavBar() {
           onClick={() => setOpen(false)}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-md" />
 
           {/* Panel lateral */}
           <aside

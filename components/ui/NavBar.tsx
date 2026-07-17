@@ -103,11 +103,11 @@ export function NavBar() {
           onClick={() => setOpen(false)}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-md" />
+          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" />
 
           {/* Panel lateral */}
           <aside
-            className="absolute right-0 top-0 flex h-full w-[min(85vw,340px)] flex-col bg-[#0a0f1e] shadow-2xl"
+            className="absolute right-0 top-0 z-10 flex h-full w-[min(85vw,340px)] flex-col bg-[#0a0f1e] shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Cabecera del panel */}

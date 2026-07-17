@@ -47,12 +47,10 @@ const valueCards = [
 export function About() {
   return (
     <AnimatedSection id="sobre-mi" className="container-shell py-10 md:py-28">
-      <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr]">
+      <div className="grid gap-10 lg:gap-16 lg:grid-cols-[0.85fr_1.15fr]">
 
-        {/* ── Columna izquierda: foto + cards + contacto ── */}
-        <div className="flex flex-col gap-5">
-
-          {/* Foto */}
+        {/* ── Columna izquierda: foto + cards + contacto (oculto en móvil) ── */}
+        <div className="hidden lg:flex flex-col gap-5">
           <motion.div
             className="premium-card overflow-hidden rounded-3xl p-4"
             whileHover={{ scale: 1.01 }}
@@ -68,7 +66,6 @@ export function About() {
             />
           </motion.div>
 
-          {/* Value cards 2x2 */}
           <div className="grid grid-cols-2 gap-3">
             {valueCards.map((card) => {
               const Icon = card.icon;
@@ -90,7 +87,6 @@ export function About() {
             })}
           </div>
 
-          {/* Contacto */}
           <div className="flex flex-col gap-2 text-sm text-slate-300">
             <span className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2">
               <MapPin size={16} className="text-blue-300" /> Sevilla, España
@@ -110,15 +106,14 @@ export function About() {
               <Github size={16} className="text-slate-200" /> github.com/PablRios00
             </a>
           </div>
-
         </div>
 
-        {/* ── Columna derecha: solo texto ── */}
+        {/* ── Columna derecha: texto + cards en móvil ── */}
         <div className="flex flex-col justify-center">
           <p className="section-kicker">Perfil profesional</p>
           <h2 className="section-title">Sobre mí</h2>
 
-          <div className="mt-6 space-y-5 text-base leading-8 text-slate-300 md:text-lg">
+          <div className="mt-4 space-y-4 text-base leading-7 text-slate-300 md:mt-6 md:space-y-5 md:leading-8 md:text-lg">
             <p>
               Soy Pablo Ríos González, desarrollador web Full Stack de Sevilla con una gran pasión
               por construir proyectos reales que resuelven problemas concretos. Acabo de completar
@@ -127,15 +122,34 @@ export function About() {
             </p>
             <p>
               Me especializo en el stack web moderno — Java, Spring Boot, React, Python, FastAPI —
-              y en la integración de IA en aplicaciones reales. He trabajado con OpenAI, Claude,
-              Mistral AI y LangGraph para construir sistemas agentivos que automatizan procesos
-              y multiplican la productividad.
+              y en la integración de IA en aplicaciones reales.
             </p>
             <p>
               Busco una empresa donde seguir creciendo junto a un equipo con experiencia,
               aportar desde el primer día y demostrar que el compromiso y la humildad
               son tan importantes como el código.
             </p>
+          </div>
+
+          {/* Cards — solo visibles en móvil */}
+          <div className="mt-6 grid grid-cols-2 gap-3 lg:hidden">
+            {valueCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <motion.div
+                  key={card.title}
+                  className={`rounded-2xl border ${card.border} bg-slate-900/60 p-3 transition-shadow duration-300`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: card.delay }}
+                >
+                  <Icon className={`mb-2 ${card.color}`} size={18} />
+                  <p className="font-display text-xs font-bold text-white">{card.title}</p>
+                  <p className="mt-1 text-xs leading-4 text-slate-400 hidden sm:block">{card.desc}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 

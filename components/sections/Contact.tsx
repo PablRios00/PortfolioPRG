@@ -45,7 +45,7 @@ export function Contact() {
   }
 
   return (
-    <AnimatedSection id="contacto" className="bg-[#0f172a]/55 py-10 md:py-28">
+    <AnimatedSection id="contacto" className="bg-[#0f172a]/55 py-10 md:py-20">
       <div className="container-shell">
         <p className="section-kicker">Hablemos</p>
         <h2 className="section-title">Contacto</h2>

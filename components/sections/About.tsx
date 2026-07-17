@@ -46,7 +46,7 @@ const valueCards = [
 
 export function About() {
   return (
-    <AnimatedSection id="sobre-mi" className="container-shell py-10 md:py-28">
+    <AnimatedSection id="sobre-mi" className="container-shell py-10 md:py-20">
       <div className="grid gap-10 lg:gap-16 lg:grid-cols-[0.85fr_1.15fr]">
 
         {/* ── Columna izquierda: foto + cards + contacto (oculto en móvil) ── */}

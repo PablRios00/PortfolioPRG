@@ -155,7 +155,7 @@ function InfiniteCarousel({
 
 export function Skills() {
   return (
-    <AnimatedSection id="habilidades" className="bg-[#0f172a]/55 py-10 md:py-28 overflow-hidden">
+    <AnimatedSection id="habilidades" className="bg-[#0f172a]/55 py-10 md:py-20 overflow-hidden">
       <div className="container-shell">
         <p className="section-kicker">Tecnologías con las que trabajo</p>
         <h2 className="section-title">Stack Técnico</h2>

@@ -166,6 +166,7 @@ export const projects: Project[] = [
       database: ["MySQL"],
     },
     github: "https://github.com/PablRios00/Adopta-app",
+    demo: "https://adopta.pablorios.eu",
     specialBadge: "TFG DAW",
     media: {
       type: "video",

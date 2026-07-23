@@ -48,6 +48,37 @@ export const navItems = [
 
 export const projects: Project[] = [
   {
+    name: "Adopta-app (TFG)",
+    badge: "Full Stack",
+    category: "Web",
+    badgeTone: "bg-pink-500/15 text-pink-200 border-pink-400/30",
+    description:
+      "Plataforma web para adopción responsable con chat en tiempo real, favoritos, galería múltiple, geolocalización por zonas y panel de administración.",
+    stack: ["HTML5", "CSS3", "JavaScript", "PHP 8", "PDO", "MySQL", "Bootstrap"],
+    stackSegmented: {
+      frontend: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5"],
+      backend: ["PHP 8", "PDO"],
+      database: ["MySQL"],
+    },
+    github: "https://github.com/PablRios00/Adopta-app",
+    demo: "https://adopta.pablorios.eu",
+    specialBadge: "TFG DAW",
+    media: {
+      type: "video",
+      src: "/projects/adopta-demo.mp4",
+      alt: "Demo en vídeo de Adopta-app"
+    }
+  }
+];
+
+// ─────────────────────────────────────────────────────────────────────────
+// PROYECTOS OCULTOS TEMPORALMENTE (a petición expresa, todos menos Adopta).
+// FLUJO está pendiente de un rediseño antes de volver a mostrarse.
+// Para restaurar cualquiera de estos, corta el objeto correspondiente y
+// pégalo de nuevo dentro del array `projects` de arriba (antes del `];`).
+// ─────────────────────────────────────────────────────────────────────────
+/*
+  {
     name: "FLUJO",
     badge: "IA · Automatización",
     category: "IA",
@@ -152,29 +183,7 @@ export const projects: Project[] = [
       alt: "Landing de Cadera Pro Academy"
     }
   },
-  {
-    name: "Adopta-app (TFG)",
-    badge: "Full Stack",
-    category: "Web",
-    badgeTone: "bg-pink-500/15 text-pink-200 border-pink-400/30",
-    description:
-      "Plataforma web para adopción responsable con chat en tiempo real, favoritos, galería múltiple, geolocalización por zonas y panel de administración.",
-    stack: ["HTML5", "CSS3", "JavaScript", "PHP 8", "PDO", "MySQL", "Bootstrap"],
-    stackSegmented: {
-      frontend: ["HTML5", "CSS3", "JavaScript ES6+", "Bootstrap 5"],
-      backend: ["PHP 8", "PDO"],
-      database: ["MySQL"],
-    },
-    github: "https://github.com/PablRios00/Adopta-app",
-    demo: "https://adopta.pablorios.eu",
-    specialBadge: "TFG DAW",
-    media: {
-      type: "video",
-      src: "/projects/adopta-demo.mp4",
-      alt: "Demo en vídeo de Adopta-app"
-    }
-  }
-];
+*/
 
 export const filters = ["Todos", "IA", "PHP", "TypeScript", "Web", "Java", "Python", "Vue", ".NET"];
 

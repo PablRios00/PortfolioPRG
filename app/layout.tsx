@@ -14,7 +14,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap"
 });
 
-const siteUrl = "https://portfolioprg.vercel.app";
+const siteUrl = "https://pablorios.eu";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

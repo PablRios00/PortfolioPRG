@@ -48,6 +48,29 @@ export const navItems = [
 
 export const projects: Project[] = [
   {
+    name: "VitalPro",
+    badge: "Full Stack · Java",
+    category: "Java",
+    badgeTone: "bg-teal-500/15 text-teal-200 border-teal-400/30",
+    description:
+      "Plataforma de nutrición y entrenamiento personal con IA que conecta profesionales y clientes: planes nutricionales, rutinas de entrenamiento, seguimiento de progreso con gráficas, chat en tiempo real, recomendaciones generadas por IA (Google Gemini) e informes de progreso en PDF.",
+    stack: ["Java 21", "Spring Boot 3.5", "Spring Security", "JWT", "PostgreSQL", "React 18", "TypeScript", "Tailwind CSS", "WebSocket", "Google Gemini API", "Docker"],
+    stackSegmented: {
+      frontend: ["React 18", "TypeScript", "Vite", "Tailwind CSS", "React Hook Form", "Zod", "Recharts", "@stomp/stompjs"],
+      backend: ["Java 21", "Spring Boot 3.5", "Spring Security + JWT", "Spring WebSocket (STOMP)", "Google Gemini API", "iText 5", "JFreeChart"],
+      database: ["PostgreSQL 16", "Docker", "Render"],
+    },
+    github: "https://github.com/PablRios00/VitalPro",
+    demo: "https://vitalpro-frontend.onrender.com",
+    featured: true,
+    specialBadge: "Proyecto estrella",
+    media: {
+      type: "image",
+      src: "/projects/vitalpro.png",
+      alt: "Panel de gestión de clientes de VitalPro"
+    }
+  },
+  {
     name: "Adopta-app (TFG)",
     badge: "Full Stack",
     category: "Web",
